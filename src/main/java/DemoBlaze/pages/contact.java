@@ -21,26 +21,32 @@ public class contact {
         private final By quit= By.xpath("//h5[.='New message']//following::button[@class='close'][1]");
         private final By modal= By.xpath("//div[@id='exampleModal' and @class='modal fade show']");
 
-
-
+    @Step("contact modal show up")
+    public navBar show() {
+        driver.validation().isElementVisible(modal);
+        driver.element().click(quit);
+        return new navBar(driver);
+    }
+    @Step("click on send message without entering any detail")
+    public navBar noDetailMessage(){
+        driver.element().type(Email,"").type(name,"")
+                .type(message,"")
+                .click(sendMessage);
+        return new navBar(driver);
+    }
 
         @Step("send message")
         public navBar sendMessage(String email,String Name,String Mess){
             driver.element().type(Email,email).type(name,Name).type(message,Mess).click(sendMessage);
             String alertText=driver.alert().getAlertText();
             driver.alert().acceptAlert();
-            driver.element().click(closebutton);
+
             driver.verification().assertEquals(alertText,"Thanks for the message!!","signup error wrong message");
             return new navBar(driver);
 
         }
 
-        @Step("return to home")
-        public navBar quit() {
-            driver.element().click(quit);
-            driver.validation().isElementVisible(modal);
-            return new navBar(driver);
-        }
+
 
 
     }

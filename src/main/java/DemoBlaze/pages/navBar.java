@@ -37,12 +37,12 @@ public class navBar {
         private By footer(int order){
             return  By.xpath("//h4[@class='grrrr']//following::p["+order+"]");
         }
-//label productstore
+
 
         @Step("Navigate to Home Page")
         public navBar navigate()
         {
-            driver.browser().navigateTo(PropertyReader.getProperty("baseUrlWeb"));
+            driver.browser().navigateTo(PropertyReader.getProperty("baseUrlWeb")+navEndpoint);
             return this;
         }
         @Step("Click on Home Button")
@@ -52,7 +52,7 @@ public class navBar {
             return this;
         }
         @Step("Click on Products Button")
-        public contact contactButton()
+        public contact clickOnContactButton()
         {
             driver.element().click(contactButton);
             return new contact(driver);

@@ -3,8 +3,8 @@ package DemoBlaze.pages;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
+
 import DemoBlaze.drivers.GUIDriver;
 import DemoBlaze.utils.dataReader.PropertyReader;
 import io.qameta.allure.Step;
@@ -78,13 +78,22 @@ public class cart {
         String amount = driver.element().getText(amount1);
         driver.validation().isElementVisible(thankyouMess);
         driver.validation().assertEquals(TotalLabel,String.valueOf(total),"label shows wrong total price");
-        driver.validation().assertEquals(amount,"0","should not allow purchase cart empty");
+        driver.validation().assertFalse(Objects.equals(amount, "0"),"should not allow purchase cart empty");
         return this;
 
 
         }
 
+    @Step("validate info")
+    public cart validateInfo(String Name,String Credit){
+            String name=driver.element().getText(names1);
+            String card= driver.element().getText(cardnum1);
+            
+        driver.validation().assertEquals(name,Name," names don't not match");
+        driver.validation().assertEquals(card,Credit," card number doesn't not match");
+        return this;
 
+    }
 
 
         @Step("Verify Product Details On Cart")
@@ -101,7 +110,7 @@ public class cart {
             return this;
         }
         @Step("Verify Product Details On Cart")
-        public cart verifyProductDetailsOnCarts ()
+        public cart ValidateTotalAmount ()
         {
             double sum=0;
             List<String> list= new ArrayList<>();
@@ -139,18 +148,19 @@ public class cart {
     }
 
     @Step("complete purchase")
-    public navBar purchase (String iD,String Amount,String CardNumber,String Name,String date) {
-            String ID=driver.element().getText(ID1);
+    public navBar purchase (String CardNumber,String Name) {
+          //  String ID=driver.element().findElement(ID1);
         String amount = driver.element().getText(amount1);
-        String names = driver.element().getText(names1);
+        String name = driver.element().getText(names1);
         String Date = driver.element().getText(Date1);
         String cardnum = driver.element().getText(cardnum1);
+        String Total=driver.element().getText(total);
         driver.element().click(okbutton);
-            driver.validation().assertEquals(ID,iD,"");
-        driver.validation().assertEquals(amount,Amount,"");
-        driver.validation().assertEquals(names,Name,"");
-        driver.validation().assertEquals(cardnum,CardNumber,"");
-        driver.validation().assertEquals(Date,date,"");
+            driver.validation().isElementVisible(ID1);
+        driver.validation().assertEquals(amount,Total,"wrong amount");
+        driver.validation().assertEquals(name,Name,"wrong name");
+        driver.validation().assertEquals(cardnum,CardNumber,"wrong credit card number");
+        //driver.validation().assertEquals(Date,date,"");
         return new navBar(driver);
 
     }

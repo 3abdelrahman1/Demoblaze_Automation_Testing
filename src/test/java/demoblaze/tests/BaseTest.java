@@ -16,7 +16,8 @@ import org.testng.annotations.BeforeClass;
 public class BaseTest implements WebDriverProvider {
     protected GUIDriver driver;
     protected JsonReader testData;
-
+    protected JsonReader secTestData;
+    protected JsonReader thirdTestData;
 
 
 

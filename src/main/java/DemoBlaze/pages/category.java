@@ -18,7 +18,7 @@ public class category {
    
     
         private final GUIDriver driver;
-        private final String categ = "#";
+        //private final String categ = "#";
         public category(GUIDriver driver) {
 
             this.driver = driver;
@@ -32,7 +32,9 @@ public class category {
         private final By homeCards = By.className("card h-100");
 
 //dynamic locator
-
+        private By category(String productname) {
+           return By.xpath("//a[.="+productname+"]");
+        }
         private By cardTitle(String productname) {
 
             return  By.xpath("//a[text()="+productname+"]");
@@ -47,12 +49,7 @@ public class category {
             return By.xpath( "//a[text()="+productname+"]//following::h5']");
         }
 
-        @Step("Navigate to Home Page")
-        public category navigate()
-        {
-            driver.browser().navigateTo(PropertyReader.getProperty("baseUrlWeb"+categ));
-            return this;
-        }
+
     @Step("testing next and prev buttons")
     public category nextButton()
     {
@@ -89,27 +86,30 @@ public class category {
             driver.validation().assertTrue(list1.equals(list2),"list changed unexpectedly");
             return this;
         }
-        @Step("verify product details")
-        public category prodDetail(String productname,String pname,String pText, String Price){
+
+        @Step("verify product details from category")
+        public category categoryChoice(String categ,String productname, String Price,String pText){
+            driver.element().click(category(categ));
             String actualProductName = driver.element().getText(cardTitle(productname));
             String actualProductPrice = driver.element().getText(price(productname));
             String actualProductTxt= driver.element().getText(cardText(productname));
             LogsManager.info("actual product name:", actualProductName, "actual price:", actualProductPrice,"actual price:",actualProductTxt);
-            driver.validation().assertEquals(actualProductName, pname, "Product Name Verification Failed");
+
             driver.validation().assertEquals(actualProductPrice, "$"+Price, "Product Price Verification Failed");
             driver.validation().assertEquals(actualProductTxt, pText, "Product text Verification Failed");
-            driver.validation().isElementVisible(cardTitle(pname));
-            driver.validation().isElementVisible(cardText(pname));
-            driver.validation().isElementVisible(price(pname));
+            driver.validation().isElementVisible(cardTitle(productname));
+            driver.validation().isElementVisible(cardText(productname));
+            driver.validation().isElementVisible(price(productname));
             return this;
         }
 
         @Step("verify correct address")
-        public productDescribe prodDescribe(String pname){
+        public productDescribe prodAddress(String categ,String pname){
+            driver.element().click(category(categ));
             String address=driver.element().findElement(cardTitle(pname)).getDomProperty("href");
             driver.element().click(cardTitle(pname));
             String currentUrl=driver.browser().getCurrentUrl();
-            driver.validation().assertEquals(address,currentUrl,"wrong address");
+            driver.validation().assertEquals(PropertyReader.getProperty("baseUrlWeb")+address,currentUrl,"wrong address");
 
             return new productDescribe(driver);
 
