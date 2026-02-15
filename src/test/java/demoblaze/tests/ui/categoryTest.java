@@ -1,11 +1,9 @@
 package demoblaze.tests.ui;
 import DemoBlaze.drivers.GUIDriver;
-import DemoBlaze.drivers.UITest;
 import DemoBlaze.pages.category;
 import DemoBlaze.pages.navBar;
 import demoblaze.tests.BaseTest;
 import DemoBlaze.utils.dataReader.JsonReader;
-import io.qameta.allure.*;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
@@ -43,7 +41,7 @@ public class categoryTest extends BaseTest {
     }
     @Test
     public void testProductAddress() {
-        new category(driver).prodAddress(testData.getJsonData("category"),testData.getJsonData("product1.name"));
+        new category(driver).productAddress(testData.getJsonData("category"),testData.getJsonData("product1.name"));
     }
 
     @BeforeClass
@@ -51,12 +49,12 @@ public class categoryTest extends BaseTest {
         testData = new JsonReader("laptops");
          secTestData= new JsonReader("phones");
          thirdTestData = new JsonReader("monitors");
-
+        new navBar(driver).navigate();
     }
         @BeforeMethod
         public void setUp() {
             driver = new GUIDriver();
-            new navBar(driver).navigate();
+
 
         }
     @AfterMethod

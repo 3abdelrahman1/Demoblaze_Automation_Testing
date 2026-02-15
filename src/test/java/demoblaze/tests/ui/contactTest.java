@@ -12,10 +12,14 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 public class contactTest extends BaseTest {
     @Test
-    public void verifyReturningToNavbar() {
+    public void sendMessageWithNoDetails() {
         new navBar(driver).clickOnContactButton().show().clickOnContactButton()
-                .noDetailMessage().
-                clickOnContactButton().sendMessage(testData.getJsonData("Email"),
+                .noDetailMessage();
+
+    }
+    @Test
+    public void sendMessage() {
+        new navBar(driver).clickOnContactButton().sendMessage(testData.getJsonData("Email"),
                         testData.getJsonData("contactName"),testData.getJsonData("Message"));
     }
     @BeforeClass

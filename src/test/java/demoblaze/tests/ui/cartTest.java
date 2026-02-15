@@ -14,33 +14,69 @@ import org.testng.annotations.Test;
 public class cartTest extends BaseTest{
 
     @Test
-    public void EmptyCartPurchase() {
-        new cart(driver).navigateToCart().emptyCartPurchase(testData.getJsonData("name"),
-                testData.getJsonData("country"),
-                testData.getJsonData("city"),
-                testData.getJsonData("cardNumber"),
-                testData.getJsonData("month"),
-                testData.getJsonData("year"));
-
+    public void verifyCartItems() {
+        new navBar(driver).clickOnHomeButton().gotocategory()
+                .GoToPhones().productAddress(secTestData.getJsonData("Phones.product1.name")).addToCart().clickOnHomeButton().gotocategory().
+                GoToLaptops().productAddress(secTestData.getJsonData("Laptops.product1.name")).addToCart().clickOnHomeButton().gotocategory().
+                GoToMonitors().productAddress(secTestData.getJsonData("Monitors.product1.name")).addToCart().clickOnHomeButton().clickOnCartButton().
+                verifyProductDetailsOnCart(secTestData.getJsonData("Phones.product1.name"),secTestData.getJsonData("Phones.product1.img"),
+                        secTestData.getJsonData("Phones.product1.price")
+                     ).
+                verifyProductDetailsOnCart(secTestData.getJsonData("Laptops.product1.name"),
+                        secTestData.getJsonData("Laptops.product1.img"),
+                                secTestData.getJsonData("Laptops.product1.price")
+                       ).verifyProductDetailsOnCart(secTestData.getJsonData("Monitors.product1.name")
+                ,secTestData.getJsonData("Monitors.product1.img"),secTestData.getJsonData("Monitors.product1.price")
+                       )
+                .ValidateTotalAmount().verifyDeleteProduct(secTestData.getJsonData("Laptops.product1.name"));
     }
     @Test
-    public void validateInfo() {
-        new cart(driver).validateInfo(testData.getJsonData("name"),testData.getJsonData("cardNumber"));
+    public void noCredentials() {
+        new cart(driver).noCred();
+    }
+
+    @Test
+    public void EmptyCartPurchase() {
+        new cart(driver).navigateToCart().emptyCartPurchase(
+                testData.getJsonData("name"),
+                testData.getJsonData("cardNumber"));
     }
     @Test
     public void InvalidPurchase() {
-        new cart(driver).
+        new navBar(driver).clickOnHomeButton().gotocategory()
+        .GoToPhones().productAddress(secTestData.getJsonData("Phones.product1.name")).addToCart().clickOnHomeButton().gotocategory().
+        GoToLaptops().productAddress(secTestData.getJsonData("Laptops.product1.name")).addToCart().clickOnHomeButton().gotocategory().
+                GoToMonitors().productAddress(secTestData.getJsonData("Monitors.product1.name")).addToCart().clickOnHomeButton().clickOnCartButton()
+                .PlaceOrder(
+                secTestData.getJsonData("name"),secTestData.getJsonData("country"),
+                secTestData.getJsonData("city"),secTestData.getJsonData("credit"),
+                secTestData.getJsonData("month"),secTestData.getJsonData("year"));
+
+    }
+    @Test
+    public void validPurchase() {
+        new navBar(driver).clickOnHomeButton().gotocategory()
+                .GoToPhones().productAddress(testData.getJsonData("Phones.product1.name")).addToCart().clickOnHomeButton().gotocategory().
+                GoToLaptops().productAddress(testData.getJsonData("Laptops.product1.name")).addToCart().clickOnHomeButton().gotocategory().
+                GoToMonitors().productAddress(testData.getJsonData("Monitors.product1.name")).addToCart().clickOnHomeButton().clickOnCartButton()
+                .PlaceOrder(
+                        testData.getJsonData("name"),testData.getJsonData("country"),
+                        testData.getJsonData("city"),testData.getJsonData("credit"),
+                        testData.getJsonData("month"),testData.getJsonData("year"));
+
     }
     @BeforeClass
     protected void preCondition() {
         testData = new JsonReader("purchase");
+        secTestData=new JsonReader("invalidPurchase");
+        new navBar(driver).navigate();
 
 
     }
     @BeforeMethod
     public void setUp() {
         driver = new GUIDriver();
-        new navBar(driver).navigate();
+
 
     }
     @AfterMethod

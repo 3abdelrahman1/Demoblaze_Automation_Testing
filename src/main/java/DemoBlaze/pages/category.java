@@ -8,12 +8,7 @@ import java.util.List;
 import DemoBlaze.drivers.GUIDriver;
 import DemoBlaze.utils.dataReader.PropertyReader;
 import DemoBlaze.utils.logs.LogsManager;
-import io.qameta.allure.Step;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 
-import java.util.ArrayList;
-import java.util.List;
 public class category {
    
     
@@ -48,7 +43,24 @@ public class category {
         private By price(String productname) {
             return By.xpath( "//a[text()="+productname+"]//following::h5']");
         }
-
+    @Step("navigate to phones section")
+    public category GoToPhones()
+    {
+        driver.element().click(Phones);
+        return this;
+    }
+    @Step("navigate to laptops section")
+    public category GoToLaptops()
+    {
+        driver.element().click(Laptops);
+        return this;
+    }
+    @Step("navigate to monitors section")
+    public category GoToMonitors()
+    {
+        driver.element().click(Monitors);
+        return this;
+    }
 
     @Step("testing next and prev buttons")
     public category nextButton()
@@ -104,8 +116,8 @@ public class category {
         }
 
         @Step("verify correct address")
-        public productDescribe prodAddress(String categ,String pname){
-            driver.element().click(category(categ));
+        public productDescribe productAddress( String pname){
+            driver.element().click(category(pname));
             String address=driver.element().findElement(cardTitle(pname)).getDomProperty("href");
             driver.element().click(cardTitle(pname));
             String currentUrl=driver.browser().getCurrentUrl();

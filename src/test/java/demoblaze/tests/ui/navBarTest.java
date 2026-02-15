@@ -9,4 +9,15 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 public class navBarTest extends BaseTest{
+    @Test
+    public void cartButtonTest() {}
+    @Test
+    public void signInButtonTest() {}
+    @Test
+    public void signUpButtonTest() {}
+    @Test
+    public void aboutUsButtonTest() {}
+    @Test
+    public void contactButtonTest() {}
+
 }

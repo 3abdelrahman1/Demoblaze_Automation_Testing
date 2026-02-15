@@ -87,7 +87,12 @@ public class navBar {
             driver.element().click(signupButton);
             return new signup(driver);
         }
-
+    @Step("Click on Signup/Login Button")
+    public category gotocategory()
+    {
+        driver.element().click(signupButton);
+        return new category(driver);
+    }
 
 
         @Step("Verify footer displayed")

@@ -3,12 +3,7 @@ package DemoBlaze.pages;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import DemoBlaze.drivers.GUIDriver;
-import DemoBlaze.utils.dataReader.PropertyReader;
 import DemoBlaze.utils.logs.LogsManager;
-import io.qameta.allure.Step;
-import org.openqa.selenium.By;
-
-import java.net.URL;
 
 public class productDescribe {
     private GUIDriver driver;
@@ -26,7 +21,7 @@ public class productDescribe {
         private final By img = By.cssSelector("div[class='item active'] img");
 
         @Step("verify current url")
-        public productDescribe verifyProductDetails(String Url){
+        public productDescribe verifyUrl(String Url){
             String currentURL=driver.browser().getCurrentUrl();
             driver.validation().assertEquals(currentURL, Url,"WRONG product describtion");
             return this;
@@ -46,19 +41,20 @@ public class productDescribe {
         }
 
         @Step("add to cart")
-        public productDescribe addToCart(){
+        public navBar addToCart(){
             driver.element().click(addToCartButton);
             String alertText=driver.alert().getAlertText();
             driver.alert().acceptAlert();
             driver.verification().assertEquals(alertText,"Product added","add product button not responsive");
-            return this;
+            return new navBar(driver);
 
         }
+
     @Step("double click on add to cart")
-    public productDescribe addToCartDoubleClick(){
+    public cart  addToCartDoubleClick(){
     driver.element().DoubleClick(addToCartButton);
     driver.alert().acceptMultipleAlerts();
-    return this;
+    return new cart(driver);
     }
 
     }
