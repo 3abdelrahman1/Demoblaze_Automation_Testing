@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Category Tests Suite" parallel="none">
+
+    <listeners>
+        <listener class-name="DemoBlaze.Listeners.TestNGListeners"/>
+    </listeners>
+   <!-- <groups>
+        <run>
+            <include name="aa">
+
+            </include>
+        </run>
+    </groups>
+-->
+    <test name="Cart Management and Checkout">
+        <classes>
+            <class name="demoblaze.tests.ui.categoryTest">
+                <methods>
+                <include name="testLoginFunctionality"/>
+                <include name="testAddToCart"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+</suite>

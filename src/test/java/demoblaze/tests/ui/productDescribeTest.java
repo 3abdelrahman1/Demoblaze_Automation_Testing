@@ -11,28 +11,30 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+
+@Epic("DemoBlaze Site")
+@Feature("UI User Test")
+@Story("Product description")
+@Severity(SeverityLevel.CRITICAL)
+@Owner("Abdelrahman")
+@UITest
 public class productDescribeTest extends BaseTest{
 
     @Test
-    public void doubleclickonaddtocart() {
-        new category(driver).GoToLaptops().productAddress(testData.getJsonData("Monitors.product2.name"))
-                .addToCartDoubleClick()
-                .PlaceOrder(testData.getJsonData("name"),"","",testData.getJsonData("credit")
+    public void validateProductDescription() {
+        new category(driver).navigateTo().GoToLaptops().productAddress(testData.getJsonData("Laptops.product1.name"))
+                .verifyProductDetails(testData.getJsonData("Phones.product1.name")
+                        ,testData.getJsonData("Phones.product1.price"),testData.getJsonData("Phones.product1.text"))
+                .addToCart().clickOnCartButton().PlaceOrder(testData.getJsonData("name"),"","",testData.getJsonData("credit")
                 ,"","");
     }
-    @Test
-    public void validateCart() {
-        new navBar(driver).clickOnCartButton().verifyProductDetailsOnCart(testData.getJsonData("Phones.product1.name"),
-                testData.getJsonData("Phones.product1.img"),
-                testData.getJsonData("Phones.product1.price")).ValidateTotalAmount();
 
-    }
 
 
     @BeforeClass
     protected void preCondition() {
-        testData = new JsonReader("purchase");
-        new navBar(driver).navigate();
+        testData = new JsonReader("invalidPurchase");
+       // new navBar(driver).navigate();
 
 
 

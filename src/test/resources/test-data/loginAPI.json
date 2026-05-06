@@ -1,0 +1,20 @@
+{
+  "validLogin" :
+  {
+    "username": "abdu123",
+    "password": "MTIzNA=="
+
+  },
+
+  "inValidUsername" :
+  {
+    "username": "abdu12",
+    "password": "YWJkdTEyMw=="
+
+  },
+  "inValidPassword" :
+  {
+    "username": "abdu123",
+    "password": " "
+  }
+}

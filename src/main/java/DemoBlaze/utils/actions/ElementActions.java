@@ -47,6 +47,31 @@ public class ElementActions {
                         return false;
                     }
                 }
+                    /*try {
+                        WebElement element = d.findElement(locator);
+                        scrollToElementJS(locator);
+                        // Wait until the element is stable (not moving)
+                        Point initialLocation = element.getLocation();
+                        LogsManager.info("initialLocation: " + initialLocation);
+                        Point finalLocation = element.getLocation();
+                        LogsManager.info("finalLocation: " + finalLocation);
+                        /*     if (!initialLocation.equals(finalLocation)) {
+                            return false; // still moving, wait longer
+                        }//
+                        if (element.isDisplayed() && element.isEnabled()) {
+                            element.click();
+                            LogsManager.info("Clicked on element: " + locator);
+
+                        }
+                      //  element.click();
+
+                        return true;
+                    } catch (Exception e) {
+                        LogsManager.error("Failed to click on element: " + locator, e.getMessage());
+                        return false;
+                    }
+                }
+                */
         );
         return this;
     }
@@ -57,7 +82,7 @@ public class ElementActions {
                     try {
                         Actions actions= new Actions(driver);
                         WebElement element = d.findElement(locator);
-                        scrollToElementJS(locator);
+                        //scrollToElementJS(locator);
                         actions.doubleClick(element).perform();
                         return true;
                     } catch (Exception e) {
@@ -78,6 +103,9 @@ public class ElementActions {
                         scrollToElementJS(locator);
                         element.clear();
                         element.sendKeys(text);
+                        if(!element.isDisplayed() ){
+                            return false;
+                        }
                         LogsManager.info("Typed text '" + text + "' into element: " + locator);
                         return true;
                     } catch (Exception e) {
@@ -176,14 +204,19 @@ public class ElementActions {
     }
     public List<String> getElementsText(By locator) {
 
-        List<WebElement> elements = driver.findElements( locator);
-
-        List<String> Text = driver.findElements(locator)
+      //  List<WebElement> elements = driver.findElements( locator);
+        return waitManager.fluentWait().until(d ->
+        {
+            try {
+        return driver.findElements(locator)
                 .stream()
                 .map(WebElement::getText)
-                .collect(Collectors.toList());
-
-        return Text;
+                .collect(Collectors.toList());}
+            catch (Exception e) {
+                return null;
+            }
+        }
+        );
     }
 
     public void Enter_PIP_JS(By locator) {

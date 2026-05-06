@@ -2,25 +2,25 @@
   "product1" :
   {
     "name": "Nokia lumia 1520",
-    "price": "820"
+    "price": "$820"
 
   },
   "product2" :
   {
     "name": "Sony vaio i5",
-    "price": "790"
+    "price": "$790"
 
   },
   "product3" :
   {
     "name": "Samsung galaxy s6",
-    "price": "360"
+    "price": "$360"
 
   },
   "product4" :
   {
     "name": "Apple monitor 24",
-    "price": "400"
+    "price": "$400"
 
   },
 

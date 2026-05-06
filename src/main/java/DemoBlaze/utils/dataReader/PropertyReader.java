@@ -17,15 +17,18 @@ public class PropertyReader {
             Properties properties = new Properties();
             Collection<File> propertiesFiles;
             propertiesFiles = FileUtils.listFiles(new File("src/main/resources"), new String[]{"properties"}, true); //get all files with extension properties
+
             propertiesFiles.forEach(file -> {
                 try {
                     properties.load(new FileInputStream(file));
+                    properties.putAll(System.getProperties());
                 } catch (Exception e) {
                     LogsManager.error("Error loading properties file:", file.getName(), e.getMessage());
                 }
-                properties.putAll(System.getProperties());
-                System.getProperties().putAll(properties);
+
+
             });
+            System.getProperties().putAll(properties);
             LogsManager.info("Properties file loaded successfully");
             return properties;
         } catch (Exception e) {

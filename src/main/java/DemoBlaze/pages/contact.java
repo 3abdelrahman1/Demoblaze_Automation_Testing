@@ -29,6 +29,7 @@ public class contact {
     }
     @Step("click on send message without entering any detail")
     public navBar noDetailMessage(){
+        driver.validation().isElementVisible(modal);
 
         driver.element().type(Email,"").type(name,"")
                 .type(message,"")

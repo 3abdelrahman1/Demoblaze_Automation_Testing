@@ -3,25 +3,25 @@
   "product1" :
   {
     "name": "Sony vaio i5",
-    "price": "790"
+    "price": "$790"
 
   },
   "product2" :
   {
     "name": "Sony vaio i7",
-    "price": "790"
+    "price": "$790"
 
   },
   "product3" :
   {
     "name": "MacBook air",
-    "price": "700"
+    "price": "$700"
 
   },
   "product4" :
   {
     "name": "Dell i7 8gb",
-    "price": "700"
+    "price": "$700"
 
   }
 }

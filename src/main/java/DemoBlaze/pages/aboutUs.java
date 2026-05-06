@@ -30,10 +30,12 @@ public class aboutUs {
     private final By Video= By.id("example-video");
     private final By pipLoadingSpinner =By.className("vjs-loading-spinner");
 
-
-
-
-
+    @Step("about us modal appears")
+    public navBar show() {
+        driver.validation().isElementVisible(aboutUsModal);
+        driver.element().click(quit);
+        return new navBar(driver);
+    }
 
     @Step("validate play video button works")
     public aboutUs playvid() {

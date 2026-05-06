@@ -6,18 +6,22 @@ import DemoBlaze.pages.navBar;
 import demoblaze.tests.BaseTest;
 import DemoBlaze.utils.dataReader.JsonReader;
 import io.qameta.allure.*;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
+
+@Epic("DemoBlaze Site")
+@Feature("UI User Test")
+@Story("Contact us Section")
+@Severity(SeverityLevel.MINOR)
+@Owner("Abdelrahman")
+@UITest
 public class contactTest extends BaseTest {
-    @Test
+    @Test(priority = 1)
     public void sendMessageWithNoDetails() {
-        new navBar(driver).clickOnContactButton().show().clickOnContactButton()
+        new navBar(driver).clickOnContactButton()
                 .noDetailMessage();
 
     }
-    @Test
+    @Test(priority = 2)
     public void sendMessage() {
         new navBar(driver).clickOnContactButton().sendMessage(testData.getJsonData("Email"),
                         testData.getJsonData("contactName"),testData.getJsonData("Message"));
@@ -25,14 +29,16 @@ public class contactTest extends BaseTest {
     @BeforeClass
     protected void preCondition() {
         testData = new JsonReader("contact");
-    }
-    @BeforeMethod
-    public void setUp() {
         driver = new GUIDriver();
         new navBar(driver).navigate();
-
     }
-    @AfterMethod
+    /*@BeforeMethod
+    public void setUp() {
+        driver = new GUIDriver();
+        new navBar(driver).navigate();}
+*/
+
+    @AfterClass
     public void tearDown() {
         driver.quitDriver();
     }

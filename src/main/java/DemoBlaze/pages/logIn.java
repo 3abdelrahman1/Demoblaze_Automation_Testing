@@ -19,26 +19,51 @@ public class logIn {
         private final By logoutButtonNavbar = By.xpath("//a[.='Log out']");
         private final By quit= By.xpath("//h5[.='Log in']//following::button[@class='close'][1]");
         private final By closebutton = By.xpath("//div[@id='logInModal']//button[.='Close']");
+        private final By barLogIn = By.id("login2");
+        private final By logInModal= By.id("logInModal");
+    ;
+    @Step("successful login")
+    public navBar show(){
+        driver.validation().isElementVisible(logInModal);
+        driver.element().click(quit);
+        return new navBar(driver);
+    }
 
         @Step("successful login")
-        public NavigationBar loginsucccess(String name,String pass)
+        public navBar loginsucccess(String name,String pass)
         {
-            driver.element().type(username,name).type(password,pass);
-
-            String logout_text=driver.element().click(loginbutton).findElement(logoutButtonNavbar).getText();
-            driver.verification().assertEquals(logout_text,"Log out","login fail");
-            return new NavigationBar(driver);
+            driver.element().type(username,name).type(password,pass).click(loginbutton);
+            return new navBar(driver);
         }
-        @Step("login fail")
-        public NavigationBar loginfail(String name,String pass)
+        @Step("Wrong username")
+        public navBar loginWrongUsername(String name,String pass)
         {
             driver.element().type(username,name).type(password,pass).click(loginbutton);
             String alertText=driver.alert().getAlertText();
             driver.alert().acceptAlert();
-            driver.element().click(closebutton);
-            driver.verification().assertEquals(alertText,"User does not exist.","login fail");
-            return new NavigationBar(driver);
+            driver.verification().assertEquals(alertText,"User does not exist.","Wrong username");
+            return new navBar(driver);
         }
+    @Step("Wrong password")
+    public navBar loginWrongPassword(String name,String pass)
+    {
+        driver.element().type(username,name).type(password,pass).click(loginbutton);
+        String alertText=driver.alert().getAlertText();
+        driver.alert().acceptAlert();
+        driver.verification().assertEquals(alertText,"Wrong password.","Wrong password");
+        return new navBar(driver);
+    }
+    @Step("Empty username or password")
+    public navBar empty(String name,String pass)
+    {
+        driver.element().type(username,name).type(password,pass).click(loginbutton);
+        String alertText=driver.alert().getAlertText();
+        driver.alert().acceptAlert();
+        driver.verification().assertEquals(alertText,"Please fill out Username and Password.","No credintials");
+        return new navBar(driver);
     }
 
-}
+
+    }
+
+

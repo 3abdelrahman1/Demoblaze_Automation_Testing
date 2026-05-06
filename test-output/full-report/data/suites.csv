@@ -1,0 +1,2 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"Validate user can login with valid credentials","21037","successfulLogIn","DemoBlaze","2026-05-06","passed","2026-05-06","demoblaze.tests.ui.loginTestAPI","DemoblazeProject","demoblaze.tests.ui.loginTestAPI","successfulLogIn"

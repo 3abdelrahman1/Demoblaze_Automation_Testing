@@ -5,8 +5,7 @@ import org.openqa.selenium.By;
 import DemoBlaze.drivers.GUIDriver;
 import DemoBlaze.utils.dataReader.PropertyReader;
 import DemoBlaze.utils.logs.LogsManager;
-import io.qameta.allure.Step;
-import org.openqa.selenium.By;
+
 public class navBar {
     
    
@@ -16,9 +15,9 @@ public class navBar {
 
             this.driver = driver;
         }
-        private final By productStoreLabel =By.cssSelector("a[class='navbar-brand']");
-        private final By homeButton = By.xpath("//a[href='index.html']");
-        private final By contactButton = By.cssSelector("a[.='Contact']");
+        private final By productStoreLabel =By.id("nava");
+       // private final By homeButton = By.xpath("//a[text()='Home ']");
+        private final By contactButton = By.xpath("//a[.='Contact']");
         private final By aboutUsButton = By.xpath("//a[.='About us']");
         private final By cartButton = By.xpath("//a[.='Cart']");
         private final By loginButton = By.xpath("//a[.='Log in']");
@@ -37,18 +36,20 @@ public class navBar {
         private By footer(int order){
             return  By.xpath("//h4[@class='grrrr']//following::p["+order+"]");
         }
+        private final By userNameIcon= By.id("nameofuser");
+        private final By logOutIcon= By.id("logout2");
 
 
         @Step("Navigate to Home Page")
         public navBar navigate()
         {
-            driver.browser().navigateTo(PropertyReader.getProperty("baseUrlWeb")+navEndpoint);
+            driver.browser().navigateTo(PropertyReader.getProperty("baseUrlWeb"));
             return this;
         }
         @Step("Click on Home Button")
-        public navBar clickOnHomeButton ()
+        public navBar clickOnLabel()
         {
-            driver.element().click(homeButton);
+            driver.element().click(productStoreLabel);
             return this;
         }
         @Step("Click on Products Button")
@@ -69,28 +70,28 @@ public class navBar {
             driver.element().click(logoutButton);
             return this;
         }
-        @Step("Click on Signup/Login Button")
+        @Step("Click on aboutUs Button")
         public aboutUs clickOnaboutUsButton()
         {
             driver.element().click(aboutUsButton);
             return new aboutUs(driver);
         }
-        @Step("Click on Signup/Login Button")
+        @Step("Click on Login Button")
         public logIn clickOnLoginButton()
         {
             driver.element().click(loginButton);
             return new logIn(driver);
         }
-        @Step("Click on Signup/Login Button")
+        @Step("Click on Signup Button")
         public signup clickOnSignupButton()
         {
             driver.element().click(signupButton);
             return new signup(driver);
         }
-    @Step("Click on Signup/Login Button")
+    @Step("go to category page ")
     public category gotocategory()
     {
-        driver.element().click(signupButton);
+        driver.element().click(productStoreLabel);
         return new category(driver);
     }
 
@@ -115,13 +116,16 @@ public class navBar {
             return this;
 
         }
-        @Step("Verify success logout")
-        public navBar logout (){
 
-            driver.element().click(logoutButton);
-            driver.validation().isElementVisible(loginButton);
-            return this;
-        }
+    @Step("validate username appears after login ")
+    public navBar userNameIcon()
+    {
+        driver.validation().isElementVisible(userNameIcon);
+        driver.element().click(logOutIcon);
+        driver.validation().isElementVisible(loginButton);
+        return this;
+
+    }
 
         @Step("Verify success logout")
         public navBar nextIcon(){

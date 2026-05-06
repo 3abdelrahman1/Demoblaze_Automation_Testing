@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Cart Tests Suite" parallel="none">
+
+    <listeners>
+        <listener class-name="DemoBlaze.Listeners.TestNGListeners"/>
+    </listeners>
+
+    <test name="Cart Management and Checkout">
+        <classes>
+            <class name="demoblaze.tests.ui.productDescribeTest"/>
+        </classes>
+    </test>
+
+</suite>

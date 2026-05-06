@@ -1,7 +1,5 @@
 package DemoBlaze.Listeners;
 
-
-
 import DemoBlaze.FileUtils;
 import DemoBlaze.drivers.UITest;
 import DemoBlaze.drivers.WebDriverProvider;
@@ -21,7 +19,7 @@ import java.io.File;
 
 public class TestNGListeners implements ISuiteListener, IExecutionListener, IInvokedMethodListener, ITestListener {
     public void onStart(ISuite suite) {
-        suite.getXmlSuite().setName("Automation Exercise");
+        suite.getXmlSuite().setName("DemoBlaze");
     }
     public void onExecutionStart() {
         LogsManager.info("Test Execution started");

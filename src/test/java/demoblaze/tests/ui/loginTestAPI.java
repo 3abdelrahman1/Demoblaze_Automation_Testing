@@ -1,28 +1,24 @@
 package demoblaze.tests.ui;
 import DemoBlaze.apis.UserManagementAPI;
 import DemoBlaze.drivers.GUIDriver;
-import DemoBlaze.drivers.UITest;
-import DemoBlaze.pages.navBar;
 import DemoBlaze.utils.TimeManager;
 import demoblaze.tests.BaseTest;
 import DemoBlaze.utils.dataReader.JsonReader;
 import io.qameta.allure.*;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Test;
-public class loginTest extends BaseTest{
+import org.testng.annotations.*;
+
+public class loginTestAPI extends BaseTest{
     String timestamp = TimeManager.getSimpleTimestamp();
-    @Description("Verify user can login with valid credentials")
-    @Test
+    @Description("Validate user can login with valid credentials")
+    @Test(priority =1)
     public void successfulLogIn()
     {
         new UserManagementAPI().LoginAccount(
                         testData.getJsonData("validLogin.username"),
-                        testData.getJsonData("validLogIn.password")).verifySuccessfulLogIn();
+                        testData.getJsonData("validLogin.password")).LoginCheck().verifySuccessfulLogIn("validLogin.token");
     }
 
-    @Description("Verify user can login with valid credentials")
+    @Description("Validate error message when signing in with invalid password")
     @Test
     public void invalidPassword()
     {
@@ -30,31 +26,33 @@ public class loginTest extends BaseTest{
                 testData.getJsonData("inValidPassword.username"),
                 testData.getJsonData("inValidPassword.password")).verifyLoginInvalidpassword();
     }
-    @Description("Verify user can login with valid credentials")
+    @Description("Validate error message when signing in with invalid username")
     @Test
     public void InvalidUsername()
     {
         new UserManagementAPI().LoginAccount(
                 testData.getJsonData("inValidUsername.username"),
-                testData.getJsonData("inValidUsername.password")).verifyLoginInvalidname();
+                testData.getJsonData("inValidUsername.password")).verifyLoginInvalidUsername();
     }
 
     @BeforeClass
     protected void preCondition() {
-        testData = new JsonReader("login");
-
-
-
+        testData = new JsonReader("loginAPI");
 
     }
-    @BeforeMethod
+/*
+   @BeforeSuite
     public void setUp() {
         driver = new GUIDriver();
 
 
     }
-    @AfterMethod
+
+
+    @AfterSuite
     public void tearDown() {
         driver.quitDriver();
     }
+*/
+
 }

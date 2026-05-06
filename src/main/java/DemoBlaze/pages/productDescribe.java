@@ -30,7 +30,7 @@ public class productDescribe {
         @Step("verify product description")
         public productDescribe verifyProductDetails(String prodname,String prodprice,String prodText){
             String actualProductName = driver.element().getText(name);
-            String actualProductPrice = driver.element().getText(price).replaceAll("[^0-9.]", "");
+            String actualProductPrice = driver.element().getText(price);
             String actualProductTxt= driver.element().getText(description);
             LogsManager.info("actual product name:", actualProductName, "actual price:", actualProductPrice,"actual price:",actualProductTxt);
             driver.validation().assertEquals(actualProductName, prodname, "Product Name Verification Failed");
@@ -52,8 +52,12 @@ public class productDescribe {
 
     @Step("double click on add to cart")
     public cart  addToCartDoubleClick(){
-    driver.element().DoubleClick(addToCartButton);
-    driver.alert().acceptMultipleAlerts();
+    //driver.element().DoubleClick(addToCartButton);
+        driver.element().click(addToCartButton);
+    //.alert().acceptMultipleAlerts();
+        driver.alert().acceptAlert();
+        driver.element().click(addToCartButton);
+        driver.alert().acceptAlert();
     return new cart(driver);
     }
 

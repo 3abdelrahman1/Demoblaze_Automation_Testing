@@ -2,10 +2,10 @@
   "category": "Monitors",
   "product1": {
     "name": "Apple monitor 24",
-    "price": "400"
+    "price": "$400"
   },
   "product2": {
     "name": "ASUS Full HD",
-    "price": "230"
+    "price": "$230"
   }
 }

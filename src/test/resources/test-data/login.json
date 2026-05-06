@@ -1,19 +1,29 @@
 {
-  "validLogin" :
+  "validUser" :
   {
     "username": "abdu123",
-    "password": "YWJkdTEyMw=="
+    "password": "1234"
   },
 
-  "inValidUsername" :
+  "invalidUsername" :
+  {
+    "username": "3445ar!#",
+    "password": "1234"
+
+  },
+
+  "invalidPassword" :
   {
     "username": "abdu123",
     "password": " "
 
   },
-  "inValidPassword" :
+  "empty" :
   {
-    "username": "abdu12",
-    "password": "YWJkdTEyMw=="
+    "username": "",
+    "password": ""
+
   }
+
+
 }
