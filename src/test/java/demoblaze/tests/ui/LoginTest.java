@@ -29,16 +29,12 @@ public class LoginTest extends BaseTest {
         new navBar(driver).navigate().clickOnLoginButton().empty(testData.getJsonData("empty.username"),testData.getJsonData("empty.password"));
     }
 
+
+
     @BeforeClass
-    protected void preCondition() {
-        testData = new JsonReader("login");
-
-    }
-
-    @BeforeSuite
     public void setUp() {
-        driver = new GUIDriver();
-
+        //driver = new GUIDriver();
+        testData = new JsonReader("login");
 
     }
 

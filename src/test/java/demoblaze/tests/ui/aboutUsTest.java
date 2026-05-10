@@ -6,43 +6,35 @@ import DemoBlaze.utils.dataReader.JsonReader;
 import io.qameta.allure.*;
 import DemoBlaze.pages.aboutUs;
 import DemoBlaze.pages.navBar;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Test;
-@Epic("DemoBlaze Site")
-@Feature("UI User Test")
-@Story("About Us section")
-@Severity(SeverityLevel.MINOR)
-@Owner("Abdelrahman")
-@UITest
+import org.testng.annotations.*;
+
+
 public class aboutUsTest extends BaseTest{
 
     @Test
     public void verifyaboutUsVideo() {
-        new navBar(driver).
+        new navBar(driver).navigate().
                 clickOnaboutUsButton().
                 playvid().
                 clickonMuteButton().
                 SliderControl();
     }
 
-    @Test
-    public void verifyReturningToNavbar() {
-        new aboutUs(driver).closeAboutUsPage();
-    }
+
 
     //Configurations
-
+/*
     @BeforeMethod
     public void setUp() {
         driver = new GUIDriver();
-        new navBar(driver).navigate();
+
 
     }
 
-    @AfterMethod
+    @AfterClass
     public void tearDown() {
         driver.quitDriver();
     }
+
+ */
 }

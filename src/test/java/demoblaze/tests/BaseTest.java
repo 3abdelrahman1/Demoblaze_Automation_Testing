@@ -4,7 +4,7 @@ import DemoBlaze.drivers.GUIDriver;
 import DemoBlaze.drivers.WebDriverProvider;
 import DemoBlaze.utils.dataReader.JsonReader;
 import org.openqa.selenium.WebDriver;
-import org.testng.annotations.BeforeClass;
+import org.testng.annotations.*;
 
 
 import DemoBlaze.drivers.GUIDriver;
@@ -14,15 +14,30 @@ import org.openqa.selenium.WebDriver;
 import org.testng.annotations.BeforeClass;
 
 public class BaseTest implements WebDriverProvider {
-    protected GUIDriver driver;
+    protected static GUIDriver driver;
     protected JsonReader testData;
     protected JsonReader secTestData;
-    protected JsonReader thirdTestData;
+
 
 
 
     @Override
     public WebDriver getWebDriver() {
         return driver.get();
+    }
+    @BeforeClass
+    public void refresh() {
+        driver.browser().refreshPage();
+    }
+
+
+    @BeforeSuite
+    public void setUp() {
+        driver = new GUIDriver();
+
+    }
+    @AfterSuite
+    public void tearDown() {
+        driver.quitDriver();
     }
 }

@@ -5,10 +5,8 @@ import DemoBlaze.pages.navBar;
 import demoblaze.tests.BaseTest;
 import DemoBlaze.utils.dataReader.JsonReader;
 import io.qameta.allure.*;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
+
 @Epic("DemoBlaze Site")
 @Feature("UI User Test")
 @Story("NavBar buttons")
@@ -24,10 +22,7 @@ public class navBarTest extends BaseTest{
     public void logInButtonTest() {
         new navBar(driver).navigate().clickOnLoginButton().show();
     }
-    @Test
-    public void signUpButtonTest() {
 
-    }
     @Test
     public void aboutUsButtonTest() {
         new navBar(driver).navigate().clickOnaboutUsButton().show();
@@ -36,15 +31,14 @@ public class navBarTest extends BaseTest{
     public void contactButtonTest() {
         new navBar(driver).navigate().clickOnContactButton().show();
     }
-    @BeforeMethod
+    /*@BeforeSuite
     public void setUp() {
         driver = new GUIDriver();
 
 
-
     }
-    @AfterMethod
+   /* @AfterMethod
     public void tearDown() {
         driver.quitDriver();
-    }
+    }*/
 }

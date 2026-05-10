@@ -1,1 +1,0 @@
-{"uuid":"8086b4c3-de42-4047-95c9-eb0ced4565f8","name":"demoblaze.tests.ui.loginTestAPI","children":["f3a50c54-fd94-49fc-8e81-a06a64e351f8"],"befores":[{"name":"preCondition","status":"passed","stage":"finished","description":"","steps":[],"attachments":[],"parameters":[],"start":1778037264571,"stop":1778037264685}],"afters":[],"start":1778037264325,"stop":1778037286523}

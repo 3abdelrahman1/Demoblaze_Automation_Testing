@@ -6,10 +6,8 @@ import DemoBlaze.pages.navBar;
 import demoblaze.tests.BaseTest;
 import DemoBlaze.utils.dataReader.JsonReader;
 import io.qameta.allure.*;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
+
 @Epic("DemoBlaze Site")
 @Feature("UI User Test")
 @Story("Items visibility")
@@ -69,7 +67,7 @@ public class categoryTest extends BaseTest {
         }
 
       */
-    @AfterMethod
+    @AfterSuite
     public void tearDown() {
         driver.quitDriver();
     }

@@ -6,10 +6,8 @@ import DemoBlaze.pages.navBar;
 import demoblaze.tests.BaseTest;
 import DemoBlaze.utils.dataReader.JsonReader;
 import io.qameta.allure.*;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
+
 @Epic("DemoBlaze Site")
 @Feature("UI User Test")
 @Story("Cart")
@@ -21,9 +19,13 @@ public class cartTest extends BaseTest{
     @Test(priority = 3)
     public void verifyCartItems() {
         new navBar(driver).navigate().gotocategory()
-                .GoToPhones().productAddress(secTestData.getJsonData("Phones.product1.name")).addToCart().
+                .GoToPhones().productAddress(secTestData.getJsonData("Phones.product1.name")).verifyProductDetails(secTestData.getJsonData("Phones.product1.name")
+                        ,secTestData.getJsonData("Phones.product1.price")
+                        ,secTestData.getJsonData("Phones.product1.text")).addToCart().
                 clickOnLabel().gotocategory().
-                GoToLaptops().productAddress(secTestData.getJsonData("Laptops.product1.name")).addToCart().clickOnLabel().
+                GoToLaptops().productAddress(secTestData.getJsonData("Laptops.product1.name")).verifyProductDetails(secTestData.getJsonData("Laptops.product1.name")
+                        ,secTestData.getJsonData("Laptops.product1.price")
+                        ,secTestData.getJsonData("Laptops.product1.text")).addToCart().clickOnLabel().
                 clickOnCartButton().
                 verifyProductDetailsOnCart(secTestData.getJsonData("Phones.product1.name"),
                         secTestData.getJsonData("Phones.product1.price")).
@@ -43,7 +45,7 @@ public class cartTest extends BaseTest{
                 testData.getJsonData("name"),
                 testData.getJsonData("credit"));
     }
-    @Test(priority = 4)
+    @Test(priority = 5)
     public void InvalidPurchase() {
         new navBar(driver).navigate().gotocategory()
         .GoToPhones().productAddress(secTestData.getJsonData("Phones.product1.name")).addToCart().clickOnLabel().gotocategory().
@@ -55,7 +57,7 @@ public class cartTest extends BaseTest{
                 secTestData.getJsonData("month"),secTestData.getJsonData("year"));
 
     }
-    @Test(priority = 5)
+    @Test(priority = 4)
     public void validPurchase() {
         new navBar(driver).navigate().gotocategory()
                 .GoToPhones().productAddress(secTestData.getJsonData("Phones.product1.name")).addToCart().clickOnCartButton().verifyProductDetailsOnCart(secTestData.getJsonData("Phones.product1.name"),
@@ -77,16 +79,10 @@ public class cartTest extends BaseTest{
     }
     /*@BeforeMethod
     public void setUp() {
-
-
-
-
     }
-
-     */
-    @AfterMethod
+    @AfterSuite
     public void tearDown() {
         driver.quitDriver();
     }
-
+ */
 }

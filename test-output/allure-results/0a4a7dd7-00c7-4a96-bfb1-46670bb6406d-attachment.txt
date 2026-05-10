@@ -1,0 +1,196 @@
+[DEBUG] - [10-05-2026 13:54:32] [main] [org.testng.TestNG] - suiteXmlPath: "C:\Users\abdu\DemoblazeProject\Test Runner\userLogedIn_Suite.xml"
+[INFO] - [10-05-2026 13:54:34] [main] [DemoBlaze.Listeners.TestNGListeners] - Test Execution started
+[INFO] - [10-05-2026 13:54:34] [main] [DemoBlaze.FileUtils] - File deleted: C:\Users\abdu\DemoblazeProject\test-output\Logs\logs.log
+[INFO] - [10-05-2026 13:54:34] [main] [DemoBlaze.Listeners.TestNGListeners] - Directories cleaned
+[INFO] - [10-05-2026 13:54:34] [main] [DemoBlaze.FileUtils] - Directory created: test-output/screenshots/
+[INFO] - [10-05-2026 13:54:34] [main] [DemoBlaze.FileUtils] - Directory created: test-output/recordings/
+[INFO] - [10-05-2026 13:54:34] [main] [DemoBlaze.FileUtils] - Directory created: src/test/resources/downloads/
+[INFO] - [10-05-2026 13:54:34] [main] [DemoBlaze.Listeners.TestNGListeners] - Directories created
+[INFO] - [10-05-2026 13:54:34] [main] [DemoBlaze.utils.dataReader.PropertyReader] - Properties file loaded successfully
+[INFO] - [10-05-2026 13:54:34] [main] [DemoBlaze.Listeners.TestNGListeners] - Properties loaded
+[INFO] - [10-05-2026 13:54:35] [main] [DemoBlaze.utils.report.AllureEnvironmentManager] - Allure environment variables set.
+[INFO] - [10-05-2026 13:54:38] [main] [DemoBlaze.utils.report.AllureBinaryManager] - Allure binaries already exist.
+[INFO] - [10-05-2026 13:54:38] [main] [DemoBlaze.Listeners.TestNGListeners] - Allure environment set
+[INFO] - [10-05-2026 13:54:39] [main] [DemoBlaze.drivers.GUIDriver] - Initializing GUIDriver with browser: Chrome
+[INFO] - [10-05-2026 13:54:39] [main] [DemoBlaze.drivers.GUIDriver] - Starting driver for browser: CHROME
+[INFO] - [10-05-2026 13:54:47] [main] [DemoBlaze.Listeners.TestNGListeners] - Test Case InvalidUsername started
+[DEBUG] - [10-05-2026 13:54:52] [main] [com.jayway.jsonpath.internal.path.CompiledPath] - Evaluating path: $['inValidUsername']['username']
+[DEBUG] - [10-05-2026 13:54:52] [main] [com.jayway.jsonpath.internal.path.CompiledPath] - Evaluating path: $['inValidUsername']['password']
+[INFO] - [10-05-2026 13:54:59] [main] [DemoBlaze.apis.UserManagementAPI] - {
+    "errorMessage": "User does not exist."
+}
+[INFO] - [10-05-2026 13:55:04] [main] [DemoBlaze.Listeners.TestNGListeners] - Test Case InvalidUsername passed
+[INFO] - [10-05-2026 13:55:04] [main] [DemoBlaze.Listeners.TestNGListeners] - Test Case invalidPassword started
+[INFO] - [10-05-2026 13:55:05] [main] [DemoBlaze.apis.UserManagementAPI] - {
+    "errorMessage": "Wrong password."
+}
+[INFO] - [10-05-2026 13:55:05] [main] [DemoBlaze.Listeners.TestNGListeners] - Test Case invalidPassword passed
+[INFO] - [10-05-2026 13:55:05] [main] [DemoBlaze.Listeners.TestNGListeners] - Test Case successfulLogIn started
+[INFO] - [10-05-2026 13:55:05] [main] [DemoBlaze.apis.UserManagementAPI] - "Auth_token: YWJkdTEyMzE3NzkwMTA="
+[INFO] - [10-05-2026 13:55:06] [main] [DemoBlaze.apis.UserManagementAPI] - {
+    "Item": {
+        "expiration": 1779010,
+        "token": "YWJkdTEyMzE3NzkwMTA=",
+        "username": "abdu123"
+    }
+}
+[INFO] - [10-05-2026 13:55:06] [main] [DemoBlaze.Listeners.TestNGListeners] - Test Case successfulLogIn passed
+[INFO] - [10-05-2026 13:55:06] [main] [DemoBlaze.Listeners.TestNGListeners] - Test Case empty started
+[INFO] - [10-05-2026 13:55:08] [main] [DemoBlaze.utils.actions.BrowserActions] - Navigated to URL: https://www.demoblaze.com
+[INFO] - [10-05-2026 13:55:09] [main] [DemoBlaze.utils.actions.ElementActions] - initialLocation: (1079, 17)
+[INFO] - [10-05-2026 13:55:09] [main] [DemoBlaze.utils.actions.ElementActions] - finalLocation: (1079, 17)
+[INFO] - [10-05-2026 13:55:09] [main] [DemoBlaze.utils.actions.ElementActions] - Clicked on element: By.xpath: //a[.='Log in']
+[INFO] - [10-05-2026 13:55:10] [main] [DemoBlaze.utils.actions.ElementActions] - Typed text '' into element: By.cssSelector: input[id='loginusername']
+[INFO] - [10-05-2026 13:55:10] [main] [DemoBlaze.utils.actions.ElementActions] - Typed text '' into element: By.cssSelector: input[id='loginpassword']
+[INFO] - [10-05-2026 13:55:11] [main] [DemoBlaze.utils.actions.ElementActions] - initialLocation: (918, 372)
+[INFO] - [10-05-2026 13:55:11] [main] [DemoBlaze.utils.actions.ElementActions] - finalLocation: (918, 372)
+[INFO] - [10-05-2026 13:55:12] [main] [DemoBlaze.utils.actions.ElementActions] - Clicked on element: By.xpath: //button[.='Log in']
+[INFO] - [10-05-2026 13:55:13] [main] [DemoBlaze.Listeners.TestNGListeners] - Test Case empty passed
+[INFO] - [10-05-2026 13:55:13] [main] [DemoBlaze.Listeners.TestNGListeners] - Test Case InvalidPassword started
+[INFO] - [10-05-2026 13:55:13] [main] [DemoBlaze.utils.actions.BrowserActions] - Navigated to URL: https://www.demoblaze.com
+[INFO] - [10-05-2026 13:55:14] [main] [DemoBlaze.utils.actions.ElementActions] - initialLocation: (1079, 17)
+[INFO] - [10-05-2026 13:55:14] [main] [DemoBlaze.utils.actions.ElementActions] - finalLocation: (1079, 17)
+[INFO] - [10-05-2026 13:55:14] [main] [DemoBlaze.utils.actions.ElementActions] - Clicked on element: By.xpath: //a[.='Log in']
+[INFO] - [10-05-2026 13:55:15] [main] [DemoBlaze.utils.actions.ElementActions] - Typed text 'abdu123' into element: By.cssSelector: input[id='loginusername']
+[INFO] - [10-05-2026 13:55:16] [main] [DemoBlaze.utils.actions.ElementActions] - Typed text ' ' into element: By.cssSelector: input[id='loginpassword']
+[INFO] - [10-05-2026 13:55:17] [main] [DemoBlaze.utils.actions.ElementActions] - initialLocation: (918, 372)
+[INFO] - [10-05-2026 13:55:17] [main] [DemoBlaze.utils.actions.ElementActions] - finalLocation: (918, 372)
+[INFO] - [10-05-2026 13:55:17] [main] [DemoBlaze.utils.actions.ElementActions] - Clicked on element: By.xpath: //button[.='Log in']
+[ERROR] - [10-05-2026 13:55:17] [main] [DemoBlaze.utils.actions.AlertActions] - Failed to get alert text: no such alert
+  (Session info: chrome=148.0.7778.96)
+Build info: version: '4.35.0', revision: '1c58e5028b'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '25.0.1'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [07673aabdf9d2a04646a280d4bf4ee28, getAlertText {}]
+Capabilities {acceptInsecureCerts: true, browserName: chrome, browserVersion: 148.0.7778.96, chrome: {chromedriverVersion: 148.0.7778.97 (6b3fa66a923a..., userDataDir: C:\Users\abdu\AppData\Local...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:6650}, goog:processID: 9228, networkConnectionEnabled: false, pageLoadStrategy: eager, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:6650/devtool..., se:cdpVersion: 148.0.7778.96, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: ignore, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 07673aabdf9d2a04646a280d4bf4ee28
+[ERROR] - [10-05-2026 13:55:17] [main] [DemoBlaze.utils.actions.AlertActions] - Failed to get alert text: no such alert
+  (Session info: chrome=148.0.7778.96)
+Build info: version: '4.35.0', revision: '1c58e5028b'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '25.0.1'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [07673aabdf9d2a04646a280d4bf4ee28, getAlertText {}]
+Capabilities {acceptInsecureCerts: true, browserName: chrome, browserVersion: 148.0.7778.96, chrome: {chromedriverVersion: 148.0.7778.97 (6b3fa66a923a..., userDataDir: C:\Users\abdu\AppData\Local...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:6650}, goog:processID: 9228, networkConnectionEnabled: false, pageLoadStrategy: eager, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:6650/devtool..., se:cdpVersion: 148.0.7778.96, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: ignore, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 07673aabdf9d2a04646a280d4bf4ee28
+[ERROR] - [10-05-2026 13:55:17] [main] [DemoBlaze.utils.actions.AlertActions] - Failed to get alert text: no such alert
+  (Session info: chrome=148.0.7778.96)
+Build info: version: '4.35.0', revision: '1c58e5028b'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '25.0.1'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [07673aabdf9d2a04646a280d4bf4ee28, getAlertText {}]
+Capabilities {acceptInsecureCerts: true, browserName: chrome, browserVersion: 148.0.7778.96, chrome: {chromedriverVersion: 148.0.7778.97 (6b3fa66a923a..., userDataDir: C:\Users\abdu\AppData\Local...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:6650}, goog:processID: 9228, networkConnectionEnabled: false, pageLoadStrategy: eager, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:6650/devtool..., se:cdpVersion: 148.0.7778.96, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: ignore, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 07673aabdf9d2a04646a280d4bf4ee28
+[INFO] - [10-05-2026 13:55:17] [main] [DemoBlaze.Listeners.TestNGListeners] - Test Case InvalidPassword passed
+[INFO] - [10-05-2026 13:55:17] [main] [DemoBlaze.Listeners.TestNGListeners] - Test Case InvalidUsername started
+[INFO] - [10-05-2026 13:55:18] [main] [DemoBlaze.utils.actions.BrowserActions] - Navigated to URL: https://www.demoblaze.com
+[INFO] - [10-05-2026 13:55:18] [main] [DemoBlaze.utils.actions.ElementActions] - initialLocation: (1079, 17)
+[INFO] - [10-05-2026 13:55:18] [main] [DemoBlaze.utils.actions.ElementActions] - finalLocation: (1079, 17)
+[INFO] - [10-05-2026 13:55:18] [main] [DemoBlaze.utils.actions.ElementActions] - Clicked on element: By.xpath: //a[.='Log in']
+[INFO] - [10-05-2026 13:55:19] [main] [DemoBlaze.utils.actions.ElementActions] - Typed text '3445ar!#' into element: By.cssSelector: input[id='loginusername']
+[INFO] - [10-05-2026 13:55:19] [main] [DemoBlaze.utils.actions.ElementActions] - Typed text '1234' into element: By.cssSelector: input[id='loginpassword']
+[INFO] - [10-05-2026 13:55:19] [main] [DemoBlaze.utils.actions.ElementActions] - initialLocation: (918, 372)
+[INFO] - [10-05-2026 13:55:19] [main] [DemoBlaze.utils.actions.ElementActions] - finalLocation: (918, 372)
+[INFO] - [10-05-2026 13:55:20] [main] [DemoBlaze.utils.actions.ElementActions] - Clicked on element: By.xpath: //button[.='Log in']
+[INFO] - [10-05-2026 13:55:20] [main] [DemoBlaze.Listeners.TestNGListeners] - Test Case InvalidUsername failed
+[INFO] - [10-05-2026 13:55:20] [main] [DemoBlaze.Listeners.TestNGListeners] - Test Case loginSuccessful started
+[INFO] - [10-05-2026 13:55:20] [main] [DemoBlaze.utils.actions.BrowserActions] - Navigated to URL: https://www.demoblaze.com
+[INFO] - [10-05-2026 13:55:20] [main] [DemoBlaze.utils.actions.ElementActions] - initialLocation: (1079, 17)
+[INFO] - [10-05-2026 13:55:20] [main] [DemoBlaze.utils.actions.ElementActions] - finalLocation: (1079, 17)
+[INFO] - [10-05-2026 13:55:21] [main] [DemoBlaze.utils.actions.ElementActions] - Clicked on element: By.xpath: //a[.='Log in']
+[INFO] - [10-05-2026 13:55:21] [main] [DemoBlaze.utils.actions.ElementActions] - Typed text 'abdu123' into element: By.cssSelector: input[id='loginusername']
+[INFO] - [10-05-2026 13:55:22] [main] [DemoBlaze.utils.actions.ElementActions] - Typed text '1234' into element: By.cssSelector: input[id='loginpassword']
+[INFO] - [10-05-2026 13:55:22] [main] [DemoBlaze.utils.actions.ElementActions] - initialLocation: (918, 372)
+[INFO] - [10-05-2026 13:55:22] [main] [DemoBlaze.utils.actions.ElementActions] - finalLocation: (918, 372)
+[INFO] - [10-05-2026 13:55:22] [main] [DemoBlaze.utils.actions.ElementActions] - Clicked on element: By.xpath: //button[.='Log in']
+[INFO] - [10-05-2026 13:55:22] [main] [DemoBlaze.utils.actions.ElementActions] - initialLocation: (0, 0)
+[INFO] - [10-05-2026 13:55:22] [main] [DemoBlaze.utils.actions.ElementActions] - finalLocation: (0, 0)
+[ERROR] - [10-05-2026 13:55:22] [main] [DemoBlaze.utils.actions.ElementActions] - Failed to click on element: By.id: logout2 element not interactable
+  (Session info: chrome=148.0.7778.96)
+Build info: version: '4.35.0', revision: '1c58e5028b'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '25.0.1'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [07673aabdf9d2a04646a280d4bf4ee28, clickElement {id=f.801871B6A94ADB9B41D523B81E702785.d.F239209EE742A1B3AC59CA4F22BBD9F1.e.352}]
+Capabilities {acceptInsecureCerts: true, browserName: chrome, browserVersion: 148.0.7778.96, chrome: {chromedriverVersion: 148.0.7778.97 (6b3fa66a923a..., userDataDir: C:\Users\abdu\AppData\Local...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:6650}, goog:processID: 9228, networkConnectionEnabled: false, pageLoadStrategy: eager, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:6650/devtool..., se:cdpVersion: 148.0.7778.96, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: ignore, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on windows (07673aabdf9d2a04646a280d4bf4ee28)] -> id: logout2]
+Session ID: 07673aabdf9d2a04646a280d4bf4ee28
+[INFO] - [10-05-2026 13:55:23] [main] [DemoBlaze.utils.actions.ElementActions] - initialLocation: (0, 0)
+[INFO] - [10-05-2026 13:55:23] [main] [DemoBlaze.utils.actions.ElementActions] - finalLocation: (0, 0)
+[ERROR] - [10-05-2026 13:55:23] [main] [DemoBlaze.utils.actions.ElementActions] - Failed to click on element: By.id: logout2 element not interactable
+  (Session info: chrome=148.0.7778.96)
+Build info: version: '4.35.0', revision: '1c58e5028b'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '25.0.1'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [07673aabdf9d2a04646a280d4bf4ee28, clickElement {id=f.801871B6A94ADB9B41D523B81E702785.d.AFFF2CD18955F986F480885D30B5EB81.e.403}]
+Capabilities {acceptInsecureCerts: true, browserName: chrome, browserVersion: 148.0.7778.96, chrome: {chromedriverVersion: 148.0.7778.97 (6b3fa66a923a..., userDataDir: C:\Users\abdu\AppData\Local...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:6650}, goog:processID: 9228, networkConnectionEnabled: false, pageLoadStrategy: eager, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:6650/devtool..., se:cdpVersion: 148.0.7778.96, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: ignore, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on windows (07673aabdf9d2a04646a280d4bf4ee28)] -> id: logout2]
+Session ID: 07673aabdf9d2a04646a280d4bf4ee28
+[INFO] - [10-05-2026 13:55:23] [main] [DemoBlaze.utils.actions.ElementActions] - initialLocation: (985, 17)
+[INFO] - [10-05-2026 13:55:23] [main] [DemoBlaze.utils.actions.ElementActions] - finalLocation: (985, 17)
+[INFO] - [10-05-2026 13:55:24] [main] [DemoBlaze.utils.actions.ElementActions] - Clicked on element: By.id: logout2
+[INFO] - [10-05-2026 13:55:24] [main] [DemoBlaze.Listeners.TestNGListeners] - Test Case loginSuccessful passed
+[INFO] - [10-05-2026 13:55:25] [main] [DemoBlaze.Listeners.TestNGListeners] - Test Case aboutUsButtonTest started
+[INFO] - [10-05-2026 13:55:25] [main] [DemoBlaze.utils.actions.BrowserActions] - Navigated to URL: https://www.demoblaze.com
+[INFO] - [10-05-2026 13:55:25] [main] [DemoBlaze.utils.actions.ElementActions] - initialLocation: (954, 17)
+[INFO] - [10-05-2026 13:55:25] [main] [DemoBlaze.utils.actions.ElementActions] - finalLocation: (954, 17)
+[INFO] - [10-05-2026 13:55:26] [main] [DemoBlaze.utils.actions.ElementActions] - Clicked on element: By.xpath: //a[.='About us']
+[INFO] - [10-05-2026 13:55:27] [main] [DemoBlaze.utils.actions.ElementActions] - initialLocation: (980, 48)
+[INFO] - [10-05-2026 13:55:27] [main] [DemoBlaze.utils.actions.ElementActions] - finalLocation: (980, 48)
+[INFO] - [10-05-2026 13:55:27] [main] [DemoBlaze.utils.actions.ElementActions] - Clicked on element: By.xpath: //h5[.='Log in']//following::button[@class='close'][2]
+[INFO] - [10-05-2026 13:55:28] [main] [DemoBlaze.media.ScreenshotsManager] - Capturing Screenshot Succeeded
+[INFO] - [10-05-2026 13:55:28] [main] [DemoBlaze.Listeners.TestNGListeners] - Test Case aboutUsButtonTest passed
+[INFO] - [10-05-2026 13:55:28] [main] [DemoBlaze.Listeners.TestNGListeners] - Test Case cartButtonTest started
+[INFO] - [10-05-2026 13:55:29] [main] [DemoBlaze.utils.actions.BrowserActions] - Navigated to URL: https://www.demoblaze.com
+[INFO] - [10-05-2026 13:55:29] [main] [DemoBlaze.utils.actions.ElementActions] - initialLocation: (1033, 17)
+[INFO] - [10-05-2026 13:55:29] [main] [DemoBlaze.utils.actions.ElementActions] - finalLocation: (1033, 17)
+[INFO] - [10-05-2026 13:55:30] [main] [DemoBlaze.utils.actions.ElementActions] - Clicked on element: By.xpath: //a[.='Cart']
+[INFO] - [10-05-2026 13:55:30] [main] [DemoBlaze.utils.actions.BrowserActions] - Current URL: https://www.demoblaze.com/cart.html
+[INFO] - [10-05-2026 13:55:30] [main] [DemoBlaze.utils.actions.BrowserActions] - Navigated to URL: https://www.demoblaze.com
+[INFO] - [10-05-2026 13:55:31] [main] [DemoBlaze.media.ScreenshotsManager] - Capturing Screenshot Succeeded
+[INFO] - [10-05-2026 13:55:31] [main] [DemoBlaze.Listeners.TestNGListeners] - Test Case cartButtonTest passed
+[INFO] - [10-05-2026 13:55:31] [main] [DemoBlaze.Listeners.TestNGListeners] - Test Case contactButtonTest started
+[INFO] - [10-05-2026 13:55:31] [main] [DemoBlaze.utils.actions.BrowserActions] - Navigated to URL: https://www.demoblaze.com
+[INFO] - [10-05-2026 13:55:31] [main] [DemoBlaze.utils.actions.ElementActions] - initialLocation: (883, 17)
+[INFO] - [10-05-2026 13:55:31] [main] [DemoBlaze.utils.actions.ElementActions] - finalLocation: (883, 17)
+[INFO] - [10-05-2026 13:55:31] [main] [DemoBlaze.utils.actions.ElementActions] - Clicked on element: By.xpath: //a[.='Contact']
+[INFO] - [10-05-2026 13:55:32] [main] [DemoBlaze.utils.actions.ElementActions] - initialLocation: (980, 25)
+[INFO] - [10-05-2026 13:55:32] [main] [DemoBlaze.utils.actions.ElementActions] - finalLocation: (980, 48)
+[INFO] - [10-05-2026 13:55:32] [main] [DemoBlaze.utils.actions.ElementActions] - initialLocation: (980, 48)
+[INFO] - [10-05-2026 13:55:32] [main] [DemoBlaze.utils.actions.ElementActions] - finalLocation: (980, 48)
+[INFO] - [10-05-2026 13:55:32] [main] [DemoBlaze.utils.actions.ElementActions] - Clicked on element: By.xpath: //h5[.='New message']//following::button[@class='close'][1]
+[INFO] - [10-05-2026 13:55:33] [main] [DemoBlaze.media.ScreenshotsManager] - Capturing Screenshot Succeeded
+[INFO] - [10-05-2026 13:55:33] [main] [DemoBlaze.Listeners.TestNGListeners] - Test Case contactButtonTest passed
+[INFO] - [10-05-2026 13:55:33] [main] [DemoBlaze.Listeners.TestNGListeners] - Test Case logInButtonTest started
+[INFO] - [10-05-2026 13:55:34] [main] [DemoBlaze.utils.actions.BrowserActions] - Navigated to URL: https://www.demoblaze.com
+[INFO] - [10-05-2026 13:55:34] [main] [DemoBlaze.utils.actions.ElementActions] - initialLocation: (1079, 17)
+[INFO] - [10-05-2026 13:55:34] [main] [DemoBlaze.utils.actions.ElementActions] - finalLocation: (1079, 17)
+[INFO] - [10-05-2026 13:55:34] [main] [DemoBlaze.utils.actions.ElementActions] - Clicked on element: By.xpath: //a[.='Log in']
+[INFO] - [10-05-2026 13:55:34] [main] [DemoBlaze.utils.actions.ElementActions] - initialLocation: (980, -9)
+[INFO] - [10-05-2026 13:55:34] [main] [DemoBlaze.utils.actions.ElementActions] - finalLocation: (980, 4)
+[INFO] - [10-05-2026 13:55:35] [main] [DemoBlaze.utils.actions.ElementActions] - initialLocation: (980, 48)
+[INFO] - [10-05-2026 13:55:35] [main] [DemoBlaze.utils.actions.ElementActions] - finalLocation: (980, 48)
+[INFO] - [10-05-2026 13:55:35] [main] [DemoBlaze.utils.actions.ElementActions] - Clicked on element: By.xpath: //h5[.='Log in']//following::button[@class='close'][1]
+[INFO] - [10-05-2026 13:55:35] [main] [DemoBlaze.media.ScreenshotsManager] - Capturing Screenshot Succeeded
+[INFO] - [10-05-2026 13:55:36] [main] [DemoBlaze.Listeners.TestNGListeners] - Test Case logInButtonTest passed
+[INFO] - [10-05-2026 13:55:36] [main] [DemoBlaze.Listeners.TestNGListeners] - Test Case sendMessageWithNoDetails started
+[INFO] - [10-05-2026 13:55:36] [main] [DemoBlaze.utils.actions.BrowserActions] - Navigated to URL: https://www.demoblaze.com
+[INFO] - [10-05-2026 13:55:36] [main] [DemoBlaze.utils.actions.ElementActions] - initialLocation: (883, 17)
+[INFO] - [10-05-2026 13:55:36] [main] [DemoBlaze.utils.actions.ElementActions] - finalLocation: (883, 17)
+[INFO] - [10-05-2026 13:55:37] [main] [DemoBlaze.utils.actions.ElementActions] - Clicked on element: By.xpath: //a[.='Contact']
+[INFO] - [10-05-2026 13:55:37] [main] [DemoBlaze.utils.actions.ElementActions] - Typed text '' into element: By.cssSelector: input[id='recipient-email']
+[INFO] - [10-05-2026 13:55:38] [main] [DemoBlaze.utils.actions.ElementActions] - Typed text '' into element: By.cssSelector: input[id='recipient-name']
+[INFO] - [10-05-2026 13:55:38] [main] [DemoBlaze.utils.actions.ElementActions] - Typed text '' into element: By.cssSelector: textarea[id='message-text']
+[INFO] - [10-05-2026 13:55:38] [main] [DemoBlaze.utils.actions.ElementActions] - initialLocation: (856, 438)
+[INFO] - [10-05-2026 13:55:38] [main] [DemoBlaze.utils.actions.ElementActions] - finalLocation: (856, 438)
+[INFO] - [10-05-2026 13:55:39] [main] [DemoBlaze.utils.actions.ElementActions] - Clicked on element: By.xpath: //button[.='Send message']
+[INFO] - [10-05-2026 13:55:39] [main] [DemoBlaze.Listeners.TestNGListeners] - Test Case sendMessageWithNoDetails failed
+[INFO] - [10-05-2026 13:55:39] [main] [DemoBlaze.Listeners.TestNGListeners] - Test Case sendMessage started
+[INFO] - [10-05-2026 13:55:39] [main] [DemoBlaze.utils.actions.BrowserActions] - Navigated to URL: https://www.demoblaze.com
+[INFO] - [10-05-2026 13:55:39] [main] [DemoBlaze.utils.actions.ElementActions] - initialLocation: (883, 17)
+[INFO] - [10-05-2026 13:55:40] [main] [DemoBlaze.utils.actions.ElementActions] - finalLocation: (883, 17)
+[INFO] - [10-05-2026 13:55:40] [main] [DemoBlaze.utils.actions.ElementActions] - Clicked on element: By.xpath: //a[.='Contact']
+[INFO] - [10-05-2026 13:55:40] [main] [DemoBlaze.utils.actions.ElementActions] - Typed text 'abc@email.com' into element: By.cssSelector: input[id='recipient-email']
+[INFO] - [10-05-2026 13:55:41] [main] [DemoBlaze.utils.actions.ElementActions] - Typed text 'abdu' into element: By.cssSelector: input[id='recipient-name']
+[INFO] - [10-05-2026 13:55:43] [main] [DemoBlaze.utils.actions.ElementActions] - Typed text 'send a message' into element: By.cssSelector: textarea[id='message-text']
+[INFO] - [10-05-2026 13:55:43] [main] [DemoBlaze.utils.actions.ElementActions] - initialLocation: (856, 438)
+[INFO] - [10-05-2026 13:55:43] [main] [DemoBlaze.utils.actions.ElementActions] - finalLocation: (856, 438)
+[INFO] - [10-05-2026 13:55:43] [main] [DemoBlaze.utils.actions.ElementActions] - Clicked on element: By.xpath: //button[.='Send message']

@@ -1,0 +1,26 @@
+[DEBUG] - [10-05-2026 13:54:32] [main] [org.testng.TestNG] - suiteXmlPath: "C:\Users\abdu\DemoblazeProject\Test Runner\userLogedIn_Suite.xml"
+[INFO] - [10-05-2026 13:54:34] [main] [DemoBlaze.Listeners.TestNGListeners] - Test Execution started
+[INFO] - [10-05-2026 13:54:34] [main] [DemoBlaze.FileUtils] - File deleted: C:\Users\abdu\DemoblazeProject\test-output\Logs\logs.log
+[INFO] - [10-05-2026 13:54:34] [main] [DemoBlaze.Listeners.TestNGListeners] - Directories cleaned
+[INFO] - [10-05-2026 13:54:34] [main] [DemoBlaze.FileUtils] - Directory created: test-output/screenshots/
+[INFO] - [10-05-2026 13:54:34] [main] [DemoBlaze.FileUtils] - Directory created: test-output/recordings/
+[INFO] - [10-05-2026 13:54:34] [main] [DemoBlaze.FileUtils] - Directory created: src/test/resources/downloads/
+[INFO] - [10-05-2026 13:54:34] [main] [DemoBlaze.Listeners.TestNGListeners] - Directories created
+[INFO] - [10-05-2026 13:54:34] [main] [DemoBlaze.utils.dataReader.PropertyReader] - Properties file loaded successfully
+[INFO] - [10-05-2026 13:54:34] [main] [DemoBlaze.Listeners.TestNGListeners] - Properties loaded
+[INFO] - [10-05-2026 13:54:35] [main] [DemoBlaze.utils.report.AllureEnvironmentManager] - Allure environment variables set.
+[INFO] - [10-05-2026 13:54:38] [main] [DemoBlaze.utils.report.AllureBinaryManager] - Allure binaries already exist.
+[INFO] - [10-05-2026 13:54:38] [main] [DemoBlaze.Listeners.TestNGListeners] - Allure environment set
+[INFO] - [10-05-2026 13:54:39] [main] [DemoBlaze.drivers.GUIDriver] - Initializing GUIDriver with browser: Chrome
+[INFO] - [10-05-2026 13:54:39] [main] [DemoBlaze.drivers.GUIDriver] - Starting driver for browser: CHROME
+[INFO] - [10-05-2026 13:54:47] [main] [DemoBlaze.Listeners.TestNGListeners] - Test Case InvalidUsername started
+[DEBUG] - [10-05-2026 13:54:52] [main] [com.jayway.jsonpath.internal.path.CompiledPath] - Evaluating path: $['inValidUsername']['username']
+[DEBUG] - [10-05-2026 13:54:52] [main] [com.jayway.jsonpath.internal.path.CompiledPath] - Evaluating path: $['inValidUsername']['password']
+[INFO] - [10-05-2026 13:54:59] [main] [DemoBlaze.apis.UserManagementAPI] - {
+    "errorMessage": "User does not exist."
+}
+[INFO] - [10-05-2026 13:55:04] [main] [DemoBlaze.Listeners.TestNGListeners] - Test Case InvalidUsername passed
+[INFO] - [10-05-2026 13:55:04] [main] [DemoBlaze.Listeners.TestNGListeners] - Test Case invalidPassword started
+[INFO] - [10-05-2026 13:55:05] [main] [DemoBlaze.apis.UserManagementAPI] - {
+    "errorMessage": "Wrong password."
+}

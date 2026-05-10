@@ -47,31 +47,7 @@ public class ElementActions {
                         return false;
                     }
                 }
-                    /*try {
-                        WebElement element = d.findElement(locator);
-                        scrollToElementJS(locator);
-                        // Wait until the element is stable (not moving)
-                        Point initialLocation = element.getLocation();
-                        LogsManager.info("initialLocation: " + initialLocation);
-                        Point finalLocation = element.getLocation();
-                        LogsManager.info("finalLocation: " + finalLocation);
-                        /*     if (!initialLocation.equals(finalLocation)) {
-                            return false; // still moving, wait longer
-                        }//
-                        if (element.isDisplayed() && element.isEnabled()) {
-                            element.click();
-                            LogsManager.info("Clicked on element: " + locator);
 
-                        }
-                      //  element.click();
-
-                        return true;
-                    } catch (Exception e) {
-                        LogsManager.error("Failed to click on element: " + locator, e.getMessage());
-                        return false;
-                    }
-                }
-                */
         );
         return this;
     }

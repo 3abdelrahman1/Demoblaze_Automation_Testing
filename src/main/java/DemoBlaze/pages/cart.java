@@ -23,7 +23,7 @@ public class cart {
         public cart(GUIDriver driver) {
             this.driver=driver;
         }
-        WaitManager wait;
+
         //private final By message= By.cssSelector("textarea[id='message-text']");
         //private final By sendMessage= By.xpath("//button[.='Place Order']");
         private final By name =By.id("name");
@@ -36,11 +36,7 @@ public class cart {
         private final By deletebutton= By.xpath("tr[1]//td[4]");
         private final By thankyouMess= By.cssSelector("div[class*='sweet-alert']");
         private final By okbutton= By.xpath("//button[.='OK']");
-        private final By IdOfSuccessfulPurchase = By.xpath("//p/text()[contains(., 'Id')]");
-        private final By amountOfSuccessfulPurchase = By.xpath( "//p/text()[contains(., 'Amount:')]");
-        private final By cardnumOfSuccessfulPurchase = By.xpath("//p/text()[contains(., 'Card Number')]");
-        private final By nameOnsuccesfulPurchase = By.xpath("//p/text()[contains(., 'Name')]");
-        private final By currentDate= By.xpath("//p/text()[contains(.,'Date')]");
+        private final By successfulPurchaseMessage = By.xpath("//p[contains(., 'Id')]");
         private final By total= By.cssSelector("h3[id='totalp']");
         private final By price= By.xpath("//td[3]");
         private final By cartItems= By.cssSelector("tr[class='success']");
@@ -135,25 +131,15 @@ public class cart {
     @Step("Empty cart purchase")
     public navBar emptyCartPurchase(String Name,String Credit){
         navigateToCart();
-        driver.element().click(placeOrder);
-        driver.element().type(name,Name).type(card,Credit).click(purchase);
-        driver.element().click(okbutton);
-        String amount = driver.element().getText(amountOfSuccessfulPurchase);
+        driver.element().click(placeOrder).type(name,Name).type(card,Credit).click(purchase);
+        String purchaseMessage = driver.element().getText(successfulPurchaseMessage);
+        String[] lines = purchaseMessage.split("\n");
+        String amount =lines[1].replaceAll("[^0-9]", "");
         driver.validation().isElementVisible(thankyouMess);
         driver.validation().assertFalse(Objects.equals(amount, "0"),"should not allow purchase cart empty");
-       /* try{
-
-        catch(AssertionError | Exception e)
-        {
-            LogsManager.info("unexpected behaviour");
-            driver.element().click(okbutton);
-            throw e;
-        }
-*/
+        driver.element().click(okbutton);
         return new navBar(driver);
-
-
-    }
+        }
 
 
 
@@ -161,24 +147,29 @@ public class cart {
     @Step("placing order")
     public navBar PlaceOrder (String Name, String Country, String City, String Credit, String Month, String Year){
         //String Total=driver.element().getText(total);
+
+        String Total=driver.element().findElement(total).getAttribute("textContent");
+                //.replaceAll("[^0-9]", "");
         driver.element().click(placeOrder);
-        String Total=driver.element().findElement(totalLabel).getText().replaceAll("[^0-9]", "");
             driver.element().type(name,Name).
                     type(country,Country).type(city,City).type(card,Credit).
                     type(month,Month).type(year,Year).click(purchase);
-       String amount = driver.element().getText(amountOfSuccessfulPurchase).replaceAll("[^0-9]", "");
-       String names = driver.element().getText(nameOnsuccesfulPurchase).split(": ")[1].replaceAll("\\s+", "");
-        String cardnum = driver.element().getText(cardnumOfSuccessfulPurchase).split(": ")[1].replaceAll("\\s+", "");
+       String purchaseMessage = driver.element().getText(successfulPurchaseMessage);
+        String[] lines = purchaseMessage.split("\n");
+        String ID = lines[0].split(":")[1].trim();
+        String amount=lines[1].replaceAll("[^0-9]", "");
+        String cardnum=lines[2].split(":")[1].trim();
+        String names=lines[3].split(":")[1].trim();
+
+
         driver.validation().isElementVisible(thankyouMess);
-        driver.validation().isElementVisible(IdOfSuccessfulPurchase);
-        driver.element().click(okbutton);
+        driver.validation().isElementVisible(successfulPurchaseMessage);
+
         //driver.validation().assertEquals(Total,String.valueOf(total),"label shows wrong total price");
         driver.validation().assertEquals(names,Name,"wrong name");
-        wait.fluentWait();
         driver.validation().assertEquals(cardnum,Credit,"wrong credit card number");
-        wait.fluentWait();
         driver.validation().assertEquals(amount,Total,"wrong amount");
-
+        driver.element().click(okbutton);
            return new navBar(driver);
     }
 
