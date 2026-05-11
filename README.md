@@ -1,4 +1,4 @@
-<h1 align="left">🚀 automation-exercise-test</h1>
+<h1 align="left">🚀 Demoblaze E-commerce Website </h1>
 
 ## Description
 
