@@ -46,6 +46,6 @@
 
 <h4><b>Execution & CI/CD</b></h4>
 <ul>
-  <li><b>Optimized Performance:</b> Multi-threading support for <ins>parallel test execution</ins> to significantly reduce build times.[cite: 1]</li>
-  <li><b>Continuous Integration:</b> Native integration with <b>GitHub Actions</b> for automated workflows.[cite: 1]</li>
+  <li><b>Optimized Performance:</b> Multi-threading support for <ins>parallel test execution</ins> to significantly reduce build times.</li>
+  <li><b>Continuous Integration:</b> Native integration with <b>GitHub Actions</b> for automated workflows.</li>
 </ul>
